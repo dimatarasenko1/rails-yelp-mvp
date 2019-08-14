@@ -12,9 +12,13 @@ Review.destroy_all
   new_restaurant = Restaurant.create(name: Faker::Name.unique.name,
                                   address: Faker::Address.street_address,
                                   phone_number: Faker::PhoneNumber.phone_number_with_country_code,
-                                  category: Restaurant::VALID_CATEGORIES.sample)
-  new_review = Review.new(content: Faker::GreekPhilosophers.quote, rating: (0..5).to_a.sample)
-  new_review.restaurant = new_restaurant
+                                  category: Restaurant::VALID_CATEGORIES.sample,
+                                  capacity: (0..200).to_a.sample)
   new_restaurant.save
-  new_review.save
+  5.times do
+    new_review = Review.new(content: Faker::GreekPhilosophers.quote, rating: (1..5).to_a.sample)
+    new_review.restaurant = new_restaurant
+    new_restaurant.save
+    new_review.save
+  end
 end

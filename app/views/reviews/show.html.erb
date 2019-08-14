@@ -1,0 +1,5 @@
+<%= link_to restaurant_path(@review.restaurant) do %>
+  <h1><%= @review.restaurant.name %></h1>
+<% end %>
+<h2><%= "*" * @review.rating %></h2>
+<p><%= @review.content %></p>

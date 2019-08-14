@@ -1,0 +1,10 @@
+<%= simple_form_for [@restaurant, @review] do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.input :content %>
+
+  <%= f.input :rating %>
+
+  <%= f.button :submit, class: "btn-primary" %>
+  <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %>
+<% end %>
